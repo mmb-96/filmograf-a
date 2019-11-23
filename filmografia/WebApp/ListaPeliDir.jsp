@@ -14,6 +14,10 @@
 		<li>${ PeliDir.titulo } - ${ PeliDir.fecha }</li>
 		</c:forEach>
 	</ul>
-	<p>¿Deseas realizar otra consulta?</p><a href="consultDir.jsp"><button>Si</button></a><a href="listaConsultaDir.jsp"><button>Finalizar</button></a>
+	<p>¿Deseas realizar otra consulta?</p><a href="consultDir.jsp"><button>Si</button></a>
+	<form action="Controller" method="post">
+		<input value="Finalizar" name="action" style="visibility: hidden; display: none;">
+		<button type="submit">Finalizar</button>
+	</form>
 </body>
 </html>

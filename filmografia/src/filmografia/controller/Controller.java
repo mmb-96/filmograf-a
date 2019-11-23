@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import filmografia.accion.Facade;
 import filmografia.accion.ListaPelisDir;
-import filmografia.model.Pelicula;
 
 /**
  * Servlet implementation class Controller
@@ -21,12 +20,15 @@ import filmografia.model.Pelicula;
 @WebServlet(description = "Controlador de la aplicacion", urlPatterns = { "/Controller" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private List<String> listaDir;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public Controller() {
-        super();
+    	super();
+    	listaDir = new ArrayList<String>();
     }
 
 //	/**
@@ -44,27 +46,29 @@ public class Controller extends HttpServlet {
 		Facade ac = null;
 		String pagSiguiente = null;
 		String action = request.getParameter("action");
-		List<String> listaDir = new ArrayList<String>();
 		try {
 			switch (action) {
 				case "Pelis Dir":
-					listaDir.add(request.getParameter("dir"));
 					ac = new ListaPelisDir();
 					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
+					if( request.getParameter("dir") != null) {
+						listaDir.add(request.getParameter("dir"));
+					}
+					System.out.println(request.getParameter("dir"));
 					break;
-//				case "Muestra sueldo":
-//					ac = new MuestraSueldo();
-//					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
-//					break;
-//				case "Recuperar empleados":
-//					ac = new RecuperarEmpleados();
-//					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
-//					break;
-//				case "Modificar empleados":
-//					ac = new ModificarEmpleados();
-//					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
-//	    	 			pagSiguiente = "Exito.html";
-//					break;
+				case "Finalizar":
+					System.out.println(listaDir.toString());
+					request.setAttribute("listaDirec", listaDir);
+					pagSiguiente = "listaConsultaDir.jsp";
+					break;
+				case "Vuelve Dir":
+					listaDir.clear();
+					pagSiguiente = "consultDir.jsp";
+					break;
+				case "Vuelve index":
+					listaDir.clear();
+	    	 		pagSiguiente = "index.html";
+					break;
 				default:
 					pagSiguiente = "index.html";
 					break;
