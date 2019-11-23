@@ -7,8 +7,11 @@
 <title>Consultar directores - Consulta Directores Cine</title>
 </head>
 <body>
-	<form action="Controller">
-	Nombre Director: <input type="text" name="dir">
+	<form action="Controller" method="post">
+		Nombre Director: <input type="text" name="dir">
+		<input value="Pelis Dir" name="action" style="visibility: hidden; display: none;">
+		<button type="submit">Consultar</button>
 	</form>
+	<p>${ msg }</p>
 </body>
 </html>
