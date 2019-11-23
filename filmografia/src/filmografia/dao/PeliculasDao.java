@@ -7,7 +7,9 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
-import filmografia.model.pelicula;
+import filmografia.model.Pelicula;
+
+
 
 /**
  * @author manu
@@ -21,36 +23,36 @@ public class PeliculasDao implements DAO {
 		peliServi = new PeliculasServicio();
 	}
 	
-	public List<pelicula> mostarTodosPeliculas() throws Exception {
-		List<pelicula> pelisTotal;
+	public List<Pelicula> mostarTodosPeliculas() throws Exception {
+		List<Pelicula> pelisTotal;
 		pelisTotal = peliServi.mostarTodasPeliculas();
 		peliServi.disconnect();
 		return pelisTotal;
 	}
 
-	public boolean altaPelicula(String director, String titulo, Date fecha) throws Exception {
+	public boolean altaPelicula(Pelicula peli) throws Exception {
 		boolean realizado;
 		realizado = peliServi.loquesea();
 		peliServi.disconnect();
 		return realizado;
 	}
 
-	public boolean borrarPelicula(String titulo, Date fecha) throws Exception {
+	public boolean borrarPelicula(Pelicula peli) throws Exception {
 		boolean realizado;
 		realizado = peliServi.loquesea();
 		peliServi.disconnect();
 		return realizado;
 	}
 
-	public boolean actualizarPelicula(String director, String titulo, Date fecha) throws Exception {
+	public boolean actualizarPelicula(Pelicula peli) throws Exception {
 		boolean realizado;
 		realizado = peliServi.loquesea();
 		peliServi.disconnect();
 		return realizado;
 	}
 
-	public List<pelicula> mostarTodosPeliculasDirector(String director) throws Exception {
-		List<pelicula> pelisDir;
+	public List<Pelicula> mostarTodosPeliculasDirector(String director) throws Exception {
+		List<Pelicula> pelisDir;
 		pelisDir = peliServi.mostarTodasPeliculasDirector(director);
 		peliServi.disconnect();
 		return pelisDir;

@@ -3,10 +3,9 @@
  */
 package filmografia.dao;
 
-import java.sql.Date;
 import java.util.List;
 
-import filmografia.model.pelicula;
+import filmografia.model.Pelicula;
 
 
 /**
@@ -15,14 +14,14 @@ import filmografia.model.pelicula;
  */
 public interface DAO {
 	
-	public List<pelicula> mostarTodosPeliculas() throws Exception;
+	public List<Pelicula> mostarTodosPeliculas() throws Exception;
 	
-	public boolean altaPelicula(String director, String titulo, Date fecha) throws Exception;
+	public boolean altaPelicula(Pelicula peli) throws Exception;
 	
-	public boolean borrarPelicula(String titulo, Date fecha) throws Exception;
+	public boolean borrarPelicula(Pelicula peli) throws Exception;
 	
-	public boolean actualizarPelicula(String director, String titulo, Date fecha) throws Exception;
+	public boolean actualizarPelicula(Pelicula peli) throws Exception;
 	
-	public List<pelicula> mostarTodosPeliculasDirector(String director) throws Exception;
+	public List<Pelicula> mostarTodosPeliculasDirector(String director) throws Exception;
 
 }

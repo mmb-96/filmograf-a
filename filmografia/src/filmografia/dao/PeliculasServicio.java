@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import filmografia.model.pelicula;
+import filmografia.model.Pelicula;
 
 /**
  * @author manu
@@ -30,25 +30,25 @@ public class PeliculasServicio {
 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cine", "manu", "621996");
 	}
 	
-	public List<pelicula> mostarTodasPeliculas() throws Exception {
-		ArrayList<pelicula> pelis = new ArrayList<pelicula>();
+	public List<Pelicula> mostarTodasPeliculas() throws Exception {
+		ArrayList<Pelicula> pelis = new ArrayList<Pelicula>();
 		sql = "Select * From pelicula";
 		pstmt = con.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		while (rs.next()){
-			pelis.add(new pelicula(rs.getString(1), rs.getString(2), rs.getDate(3)));
+			pelis.add(new Pelicula(rs.getString(1), rs.getString(2), rs.getDate(3)));
 		}
 		return pelis;
 	}
 	
-	public List<pelicula> mostarTodasPeliculasDirector(String director) throws SQLException {
-		ArrayList<pelicula> pelisDir = new ArrayList<pelicula>();
+	public List<Pelicula> mostarTodasPeliculasDirector(String director) throws SQLException {
+		ArrayList<Pelicula> pelisDir = new ArrayList<Pelicula>();
 		sql = "Select * From pelicula where director = ?";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, director);
 		rs = pstmt.executeQuery();
 		while (rs.next()) {
-			pelisDir.add(new pelicula(rs.getString(1), rs.getString(2), rs.getDate(3)));
+			pelisDir.add(new Pelicula(rs.getString(1), rs.getString(2), rs.getDate(3)));
 		}
 		return pelisDir;
 	}

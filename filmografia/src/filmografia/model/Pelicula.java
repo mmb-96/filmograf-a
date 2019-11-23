@@ -9,7 +9,7 @@ import java.sql.Date;
  * @author manu
  *
  */
-public class pelicula {
+public class Pelicula {
 	
 	private String director;
 	private String titulo;
@@ -20,7 +20,7 @@ public class pelicula {
 	 * @param titulo
 	 * @param fecha
 	 */
-	public pelicula(String director, String titulo, Date fecha) {
+	public Pelicula(String director, String titulo, Date fecha) {
 		super();
 		this.director = director;
 		this.titulo = titulo;
