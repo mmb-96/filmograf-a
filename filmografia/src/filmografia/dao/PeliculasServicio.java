@@ -41,9 +41,43 @@ public class PeliculasServicio {
 		return pelis;
 	}
 	
+	public boolean altaPelicula(Pelicula peli) throws Exception {
+		boolean realizado;
+		sql = "Insert pelicula value (?, ?, ?)";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, peli.getDirector());
+		pstmt.setString(2, peli.getTitulo());
+		pstmt.setDate(3, peli.getFecha());
+		realizado = pstmt.execute();
+		return realizado;
+	}
+
+	public boolean borrarPelicula(Pelicula peli) throws Exception {
+		boolean realizado;
+		sql = "Delete From pelicula Where titulo = ? and fecha = ?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, peli.getTitulo());
+		pstmt.setDate(2, peli.getFecha());
+		realizado = pstmt.execute();
+		return realizado;
+	}
+
+	public boolean actualizarPelicula(Pelicula peli) throws Exception {
+		boolean realizado = false;
+		sql = "Udate pelicula set director = ?, titulo = ?, fecha = ? where titulo = ? and fecha = ?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, peli.getDirector());
+		pstmt.setString(2, peli.getTitulo());
+		pstmt.setDate(3, peli.getFecha());
+		pstmt.setString(4, peli.getTitulo());
+		pstmt.setDate(5, peli.getFecha());
+		realizado = pstmt.execute();
+		return realizado;
+	}
+	
 	public List<Pelicula> mostarTodasPeliculasDirector(String director) throws SQLException {
 		ArrayList<Pelicula> pelisDir = new ArrayList<Pelicula>();
-		sql = "Select * From pelicula where director = ?";
+		sql = "Select * From pelicula Where director = ?";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, director);
 		rs = pstmt.executeQuery();

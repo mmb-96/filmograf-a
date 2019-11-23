@@ -32,21 +32,21 @@ public class PeliculasDao implements DAO {
 
 	public boolean altaPelicula(Pelicula peli) throws Exception {
 		boolean realizado;
-		realizado = peliServi.loquesea();
+		realizado = peliServi.altaPelicula(peli);
 		peliServi.disconnect();
 		return realizado;
 	}
 
 	public boolean borrarPelicula(Pelicula peli) throws Exception {
 		boolean realizado;
-		realizado = peliServi.loquesea();
+		realizado = peliServi.borrarPelicula(peli);
 		peliServi.disconnect();
 		return realizado;
 	}
 
 	public boolean actualizarPelicula(Pelicula peli) throws Exception {
 		boolean realizado;
-		realizado = peliServi.loquesea();
+		realizado = peliServi.actualizarPelicula(peli);
 		peliServi.disconnect();
 		return realizado;
 	}
