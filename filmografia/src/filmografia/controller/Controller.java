@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import filmografia.accion.Facade;
 import filmografia.accion.ListaPelisDir;
+import filmografia.accion.Login;
+import filmografia.accion.Registro;
 
 /**
  * Servlet implementation class Controller
@@ -31,12 +33,6 @@ public class Controller extends HttpServlet {
     	listaDir = new ArrayList<String>();
     }
 
-//	/**
-//	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-//	 */
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		doPost(request, response);
-//	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -66,6 +62,18 @@ public class Controller extends HttpServlet {
 				case "Vuelve a página principal":
 					listaDir.clear();
 	    	 		pagSiguiente = "index.html";
+					break;
+				case "Login":
+					listaDir.clear();
+					ac = new Login();
+					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
+					break;
+				case "crear":
+	    	 		pagSiguiente = "registro.jsp";
+					break;
+				case "registrar":
+					ac = new Registro();
+					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
 					break;
 				default:
 					pagSiguiente = "index.html";
