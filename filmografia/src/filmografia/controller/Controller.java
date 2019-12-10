@@ -54,10 +54,8 @@ public class Controller extends HttpServlet {
 					if( request.getParameter("dir") != null) {
 						listaDir.add(request.getParameter("dir"));
 					}
-					System.out.println(request.getParameter("dir"));
 					break;
 				case "Finalizar":
-					System.out.println(listaDir.toString());
 					request.setAttribute("listaDirec", listaDir);
 					pagSiguiente = "listaConsultaDir.jsp";
 					break;
@@ -65,7 +63,7 @@ public class Controller extends HttpServlet {
 					listaDir.clear();
 					pagSiguiente = "consultDir.jsp";
 					break;
-				case "Vuelve index":
+				case "Vuelve a página principal":
 					listaDir.clear();
 	    	 		pagSiguiente = "index.html";
 					break;
