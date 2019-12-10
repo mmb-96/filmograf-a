@@ -64,13 +64,11 @@ public class PeliculasServicio {
 
 	public boolean actualizarPelicula(Pelicula peli) throws Exception {
 		boolean realizado = false;
-		sql = "Udate pelicula set director = ?, titulo = ?, fecha = ? where titulo = ? and fecha = ?";
+		sql = "Update pelicula set director = ? where titulo = ? and fecha = ?";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, peli.getDirector());
 		pstmt.setString(2, peli.getTitulo());
 		pstmt.setDate(3, peli.getFecha());
-		pstmt.setString(4, peli.getTitulo());
-		pstmt.setDate(5, peli.getFecha());
 		realizado = pstmt.execute();
 		return realizado;
 	}
@@ -83,6 +81,18 @@ public class PeliculasServicio {
 		rs = pstmt.executeQuery();
 		while (rs.next()) {
 			pelisDir.add(new Pelicula(rs.getString(1), rs.getString(2), rs.getDate(3)));
+		}
+		return pelisDir;
+	}
+	
+	public Pelicula buscarPeli(String titulo) throws SQLException {
+		Pelicula pelisDir = null;
+		sql = "Select * From pelicula Where titulo = ?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, titulo);
+		rs = pstmt.executeQuery();
+		while (rs.next()) {
+			pelisDir = new Pelicula(rs.getString(1), rs.getString(2), rs.getDate(3));
 		}
 		return pelisDir;
 	}

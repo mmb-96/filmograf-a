@@ -5,6 +5,7 @@
  */
 package filmografia.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import filmografia.model.Pelicula;
@@ -55,5 +56,7 @@ public interface DAOPelis {
 	 * @throws Exception the exception
 	 */
 	public List<Pelicula> mostarTodosPeliculasDirector(String director) throws Exception;
+	
+	public Pelicula buscarPeli(String titulo) throws SQLException;
 
 }

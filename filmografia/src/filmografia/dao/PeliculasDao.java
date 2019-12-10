@@ -96,4 +96,12 @@ public class PeliculasDao implements DAOPelis {
 		return pelisDir;
 	}
 
+	@Override
+	public Pelicula buscarPeli(String titulo) throws SQLException {
+		Pelicula peli;
+		peli = peliServi.buscarPeli(titulo);
+		peliServi.disconnect();
+		return peli;
+	}
+
 }

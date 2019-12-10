@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import filmografia.accion.AltaPeli;
+import filmografia.accion.BuscarPeli;
 import filmografia.accion.Facade;
 import filmografia.accion.ListaPelisDir;
 import filmografia.accion.Login;
 import filmografia.accion.Mantenimiento;
 import filmografia.accion.Registro;
+import filmografia.accion.ModPeli;
 
 /**
  * Servlet implementation class Controller
@@ -87,6 +89,17 @@ public class Controller extends HttpServlet {
 				case "altaPeli":
 					ac = new AltaPeli();
 					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
+					break;
+				case "buscarPeli":
+					ac = new BuscarPeli();
+					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
+					break;
+				case "modPeli":
+					ac = new ModPeli();
+					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
+					break;
+				case "buscar":
+					pagSiguiente = "buscarPeli.jsp";
 					break;
 				default:
 					pagSiguiente = "index.html";

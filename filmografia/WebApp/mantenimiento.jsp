@@ -9,7 +9,6 @@
 </head>
 <body>
 	<h4>Lista de Peliculas:</h4>
-	<br>
 	<table border="1">
 	  <tr>
 	    <th>Titulo</th>
@@ -24,9 +23,15 @@
 		  </tr>
 	  </c:forEach>
 	</table>
+	<br>
 	<form action="Controller" method="post">
 		<input value="alta" name="action" style="visibility: hidden; display: none;">
 		<button type="submit">Alta nueva pelicula</button>
+	</form>
+	<br>
+	<form action="Controller" method="post">
+		<input value="buscar" name="action" style="visibility: hidden; display: none;">
+		<button type="submit">Buscar pelicula</button>
 	</form>
 </body>
 </html>
