@@ -54,9 +54,9 @@ public class PeliculasServicio {
 
 	public boolean borrarPelicula(Pelicula peli) throws Exception {
 		boolean realizado;
-		sql = "Delete From pelicula Where titulo = ? and fecha = ?";
+		sql = "Delete From pelicula Where titulo like ? and fecha = ?";
 		pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, peli.getTitulo());
+		pstmt.setString(1, "%" + peli.getTitulo() + "%");
 		pstmt.setDate(2, peli.getFecha());
 		realizado = pstmt.execute();
 		return realizado;
@@ -87,9 +87,9 @@ public class PeliculasServicio {
 	
 	public Pelicula buscarPeli(String titulo) throws SQLException {
 		Pelicula pelisDir = null;
-		sql = "Select * From pelicula Where titulo = ?";
+		sql = "Select * From pelicula Where titulo like ?";
 		pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, titulo);
+		pstmt.setString(1, "%" + titulo + "%");
 		rs = pstmt.executeQuery();
 		while (rs.next()) {
 			pelisDir = new Pelicula(rs.getString(1), rs.getString(2), rs.getDate(3));

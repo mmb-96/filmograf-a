@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import filmografia.accion.AltaPeli;
+import filmografia.accion.BorrarPeli;
 import filmografia.accion.BuscarPeli;
 import filmografia.accion.Facade;
 import filmografia.accion.ListaPelisDir;
@@ -100,6 +101,10 @@ public class Controller extends HttpServlet {
 					break;
 				case "buscar":
 					pagSiguiente = "buscarPeli.jsp";
+					break;
+				case "borrarPeli":
+					ac = new BorrarPeli();
+					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
 					break;
 				default:
 					pagSiguiente = "index.html";

@@ -11,11 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import filmografia.dao.PeliculasDao;
 import filmografia.model.Pelicula;
 
-public class ModPeli implements Facade {
-	
+public class BorrarPeli implements Facade {
 	private PeliculasDao peliDao;
 
-	public ModPeli() throws ClassNotFoundException, SQLException {
+	public BorrarPeli() throws ClassNotFoundException, SQLException {
 		peliDao = new PeliculasDao();
 	}
 
@@ -30,12 +29,12 @@ public class ModPeli implements Facade {
 			 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			 Date parsedDate = dateFormat.parse(request.getParameter("fecha"));
 			 java.sql.Date timestamp = new java.sql.Date (parsedDate.getTime());
-			 creado = peliDao.actualizarPelicula(new Pelicula(director, titulo, timestamp));
+			 creado = peliDao.borrarPelicula(new Pelicula(director, titulo, timestamp));
 			if (!creado) {
-				request.setAttribute("msg", "La película se ha modificado de la base de datos" );
+				request.setAttribute("msg", "La película se ha borrado de la base de datos" );
 				pagSiguiente = "datosUser.jsp";
 			} else {
-				request.setAttribute("msg", "La película no se ha modificado de la base de datos" );
+				request.setAttribute("msg", "La película no se ha borrado de la base de datos" );
 				pagSiguiente = "datosUser.jsp";
 			}
 		} catch (Exception e) {
@@ -44,5 +43,4 @@ public class ModPeli implements Facade {
 		}
 		return pagSiguiente;
 	}
-
 }
