@@ -13,7 +13,7 @@ public class UsuarioDao implements DAOUsuario {
 	}
 
 	@Override
-	public boolean consulUser(Usuario user) throws Exception {
+	public int consulUser(Usuario user) throws Exception {
 		return userServi.consulUser(user);
 	}
 

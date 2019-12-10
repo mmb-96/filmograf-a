@@ -14,7 +14,7 @@ public interface DAOUsuario {
 	 * @return true, if successful
 	 * @throws Exception the exception
 	 */
-	public boolean consulUser(Usuario user) throws Exception;
+	public int consulUser(Usuario user) throws Exception;
 
 	/**
 	 * Alta user.

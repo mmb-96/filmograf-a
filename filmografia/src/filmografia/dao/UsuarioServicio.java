@@ -3,7 +3,9 @@ package filmografia.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import filmografia.model.Usuario;
 
@@ -22,6 +24,10 @@ public class UsuarioServicio {
 	
 	/** The pstmt. */
 	private PreparedStatement pstmt;
+	
+	/** The smtp. */
+	private Statement stmt;
+	private ResultSet rs;
 
 	
 	/**
@@ -39,17 +45,20 @@ public class UsuarioServicio {
 	 * Consul user.
 	 *
 	 * @param user the user
-	 * @return true, if successful
-	 * @throws Exception the exception
+	 * @return the int
+	 * @throws SQLException the SQL exception
 	 */
-	public boolean consulUser(Usuario user) throws Exception {
-		boolean existe;
-		sql = "Select COUNT(users) From usuarios where users = ? and pass = ?";
-		pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, user.getUser());
-		pstmt.setString(2, user.getPass());
-		existe = pstmt.execute();
-		return existe;
+	public int consulUser(Usuario user) throws SQLException {
+		int resultado = 0;
+
+		stmt = con.createStatement();
+		sql = "SELECT COUNT(users) FROM usuarios WHERE users = '" + user.getUser() +"' and pass = '"+ user.getPass() +"'";
+		rs = stmt.executeQuery(sql);
+		if(rs.next()) {
+			resultado = rs.getInt(1);
+		}
+
+		return resultado;	
 	}
 	
 	/**
@@ -61,7 +70,7 @@ public class UsuarioServicio {
 	 */
 	public boolean altaUser(Usuario user) throws Exception {
 		boolean realizado;
-		sql = "Insert usuarios value (?, ?, ?)";
+		sql = "Insert usuarios value (?, ?)";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, user.getUser());
 		pstmt.setString(2, user.getPass());
