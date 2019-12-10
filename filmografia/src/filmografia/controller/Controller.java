@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import filmografia.accion.Facade;
 import filmografia.accion.ListaPelisDir;
 import filmografia.accion.Login;
+import filmografia.accion.Mantenimiento;
 import filmografia.accion.Registro;
 
 /**
@@ -73,6 +74,10 @@ public class Controller extends HttpServlet {
 					break;
 				case "registrar":
 					ac = new Registro();
+					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
+					break;
+				case "mantenimiento":
+					ac = new Mantenimiento();
 					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
 					break;
 				default:

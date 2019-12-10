@@ -14,11 +14,11 @@
 	</ul>
 	
 	<form action="Controller" method="post">
-		<input value="Vuelve Dir" name="action" style="visibility: hidden; display: none;">
+		<input value="Vuelve index" name="action" style="visibility: hidden; display: none;">
 		<button type="submit">Volver</button>
 	</form>
 	<form action="Controller" method="post">
-		<input value="Vuelve index" name="action" style="visibility: hidden; display: none;">
+		<input value="mantenimiento" name="action" style="visibility: hidden; display: none;">
 		<button type="submit">Mantenimiento de películas</button>
 	</form>
 	<form action="Controller" method="post">
