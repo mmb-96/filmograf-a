@@ -4,11 +4,11 @@ import java.sql.SQLException;
 
 import filmografia.model.Usuario;
 
-public class UsuarioDAO implements DAOUsuario {
+public class UsuarioDao implements DAOUsuario {
 	
 	UsuarioServicio userServi;
 	
-	public UsuarioDAO() throws ClassNotFoundException, SQLException {
+	public UsuarioDao() throws ClassNotFoundException, SQLException {
 		userServi = new UsuarioServicio();
 	}
 
