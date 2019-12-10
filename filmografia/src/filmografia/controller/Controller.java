@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import filmografia.accion.AltaPeli;
 import filmografia.accion.Facade;
 import filmografia.accion.ListaPelisDir;
 import filmografia.accion.Login;
@@ -78,6 +79,13 @@ public class Controller extends HttpServlet {
 					break;
 				case "mantenimiento":
 					ac = new Mantenimiento();
+					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
+					break;
+				case "alta":
+					pagSiguiente = "altaNuevaPeli.jsp";
+					break;
+				case "altaPeli":
+					ac = new AltaPeli();
 					pagSiguiente = ac.ejecutar(getServletContext(), request, response);
 					break;
 				default:

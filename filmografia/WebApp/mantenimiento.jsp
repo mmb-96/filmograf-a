@@ -24,5 +24,9 @@
 		  </tr>
 	  </c:forEach>
 	</table>
+	<form action="Controller" method="post">
+		<input value="alta" name="action" style="visibility: hidden; display: none;">
+		<button type="submit">Alta nueva pelicula</button>
+	</form>
 </body>
 </html>

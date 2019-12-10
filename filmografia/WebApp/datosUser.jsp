@@ -12,7 +12,7 @@
 		<li>${ Usuario }</li>
 		<li>${ Contraseña }</li>
 	</ul>
-	
+	<br />
 	<form action="Controller" method="post">
 		<input value="Vuelve index" name="action" style="visibility: hidden; display: none;">
 		<button type="submit">Volver</button>
