@@ -1,24 +1,31 @@
 /**
- * 
+ * The Class Pelicula.
+ *
+ * @author manu
  */
+
 package filmografia.model;
 
 import java.sql.Date;
 
-/**
- * @author manu
- *
- */
+
 public class Pelicula {
 	
+	/** The director. */
 	private String director;
+	
+	/** The titulo. */
 	private String titulo;
+	
+	/** The fecha. */
 	private Date fecha;
 	
 	/**
-	 * @param director
-	 * @param titulo
-	 * @param fecha
+	 * Instantiates a new pelicula.
+	 *
+	 * @param director the director
+	 * @param titulo the titulo
+	 * @param fecha the fecha
 	 */
 	public Pelicula(String director, String titulo, Date fecha) {
 		super();
@@ -28,6 +35,8 @@ public class Pelicula {
 	}
 
 	/**
+	 * Gets the director.
+	 *
 	 * @return the director
 	 */
 	public String getDirector() {
@@ -35,6 +44,8 @@ public class Pelicula {
 	}
 
 	/**
+	 * Sets the director.
+	 *
 	 * @param director the director to set
 	 */
 	public void setDirector(String director) {
@@ -42,6 +53,8 @@ public class Pelicula {
 	}
 
 	/**
+	 * Gets the titulo.
+	 *
 	 * @return the titulo
 	 */
 	public String getTitulo() {
@@ -49,6 +62,8 @@ public class Pelicula {
 	}
 
 	/**
+	 * Sets the titulo.
+	 *
 	 * @param titulo the titulo to set
 	 */
 	public void setTitulo(String titulo) {
@@ -56,6 +71,8 @@ public class Pelicula {
 	}
 
 	/**
+	 * Gets the fecha.
+	 *
 	 * @return the fecha
 	 */
 	public Date getFecha() {
@@ -63,6 +80,8 @@ public class Pelicula {
 	}
 
 	/**
+	 * Sets the fecha.
+	 *
 	 * @param fecha the fecha to set
 	 */
 	public void setFecha(Date fecha) {

@@ -32,14 +32,14 @@ public class BorrarPeli implements Facade {
 			 creado = peliDao.borrarPelicula(new Pelicula(director, titulo, timestamp));
 			if (!creado) {
 				request.setAttribute("msg", "La película se ha borrado de la base de datos" );
-				pagSiguiente = "datosUser.jsp";
+				pagSiguiente = "datosUser";
 			} else {
 				request.setAttribute("msg", "La película no se ha borrado de la base de datos" );
-				pagSiguiente = "datosUser.jsp";
+				pagSiguiente = "datosUser";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			pagSiguiente = "Error.html";
+			pagSiguiente = "Error";
 		}
 		return pagSiguiente;
 	}

@@ -33,14 +33,14 @@ public class ModPeli implements Facade {
 			 creado = peliDao.actualizarPelicula(new Pelicula(director, titulo, timestamp));
 			if (!creado) {
 				request.setAttribute("msg", "La película se ha modificado de la base de datos" );
-				pagSiguiente = "datosUser.jsp";
+				pagSiguiente = "datosUser";
 			} else {
 				request.setAttribute("msg", "La película no se ha modificado de la base de datos" );
-				pagSiguiente = "datosUser.jsp";
+				pagSiguiente = "datosUser";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			pagSiguiente = "Error.html";
+			pagSiguiente = "Error";
 		}
 		return pagSiguiente;
 	}

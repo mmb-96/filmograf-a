@@ -30,15 +30,15 @@ public class Login implements Facade {
 			existe = userDao.consulUser(new Usuario(user, pass));
 			if (existe <= 0) {
 				request.setAttribute("msg", "El usuario " + user + " no existe." );
-				pagSiguiente = "login.jsp";
+				pagSiguiente = "login";
 			} else {
 				request.setAttribute("Usuario", user);
 				request.setAttribute("Contraseña", pass);
-				pagSiguiente = "datosUser.jsp";
+				pagSiguiente = "datosUser";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			pagSiguiente = "Error.html";
+			pagSiguiente = "Error";
 		}
 		return pagSiguiente;
 	}

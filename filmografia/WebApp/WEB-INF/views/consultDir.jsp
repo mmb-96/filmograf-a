@@ -7,7 +7,7 @@
 <title>Consultar directores - Consulta Directores Cine</title>
 </head>
 <body>
-	<form action="Controller" method="post">
+	<form action="ListaPeliDir.html" method="post">
 		Nombre Director: <input type="text" name="dir">
 		<input value="Pelis Dir" name="action" style="visibility: hidden; display: none;">
 		<button type="submit">Consultar</button>

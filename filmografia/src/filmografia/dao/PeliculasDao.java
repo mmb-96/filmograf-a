@@ -96,6 +96,13 @@ public class PeliculasDao implements DAOPelis {
 		return pelisDir;
 	}
 
+	/**
+	 * Buscar peli.
+	 *
+	 * @param titulo the titulo
+	 * @return the pelicula
+	 * @throws SQLException the SQL exception
+	 */
 	@Override
 	public Pelicula buscarPeli(String titulo) throws SQLException {
 		Pelicula peli;

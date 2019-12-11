@@ -14,12 +14,10 @@
 		</c:forEach>
 	</ul>
 	
-	<form action="Controller" method="post">
-		<input value="Vuelve Dir" name="action" style="visibility: hidden; display: none;">
+	<form action="consultDir.html" method="get">
 		<button type="submit">Volver a consultar directores</button>
 	</form>
-	<form action="Controller" method="post">
-		<input value="Vuelve index" name="action" style="visibility: hidden; display: none;">
+	<form action="index.html" method="post">
 		<button type="submit">Inicio</button>
 	</form>
 </body>

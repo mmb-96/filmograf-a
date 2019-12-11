@@ -13,16 +13,13 @@
 		<li>${ Contraseña }</li>
 	</ul>
 	<br />
-	<form action="Controller" method="post">
-		<input value="Vuelve index" name="action" style="visibility: hidden; display: none;">
+	<form action="index.html" method="post">
 		<button type="submit">Volver</button>
 	</form>
-	<form action="Controller" method="post">
-		<input value="mantenimiento" name="action" style="visibility: hidden; display: none;">
+	<form action="mantenimiento.html" method="post">
 		<button type="submit">Mantenimiento de películas</button>
 	</form>
-	<form action="Controller" method="post">
-		<input value="crear" name="action" style="visibility: hidden; display: none;">
+	<form action="newUser.html" method="post">
 		<button type="submit">Crear usuario</button>
 	</form>
 	<p>${ msg }</p>

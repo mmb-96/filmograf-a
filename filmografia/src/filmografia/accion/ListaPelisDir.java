@@ -34,15 +34,15 @@ public class ListaPelisDir implements Facade{
 			lista = peliDao.mostarTodosPeliculasDirector(director);
 			if (lista.size() == 0) {
 				request.setAttribute("msg", "El director " + director + " no existe." );
-				pagSiguiente = "consultDir.jsp";
+				pagSiguiente = "consultDir";
 			} else {
 				request.setAttribute("director", director);
 				request.setAttribute("peliculasDir", lista);
-				pagSiguiente = "ListaPeliDir.jsp";
+				pagSiguiente = "ListaPeliDir";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			pagSiguiente = "Error.html";
+			pagSiguiente = "Error";
 		}
 		return pagSiguiente;
 	}

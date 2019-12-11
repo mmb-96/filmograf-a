@@ -28,10 +28,10 @@ public class Registro implements Facade {
 			if (!existe) {
 				request.setAttribute("msg", "El usuario " + user + " ha sido creado." );
 			}
-			pagSiguiente = "datosUser.jsp";
+			pagSiguiente = "datosUser";
 		} catch (Exception e) {
 			request.setAttribute("msg", "El usuario " + user + " ya existe." );
-			pagSiguiente = "datosUser.jsp";
+			pagSiguiente = "datosUser";
 		}
 		return pagSiguiente;
 	}

@@ -1,5 +1,7 @@
 /**
- * 
+ * The Class PeliculasServicio.
+ *
+ * @author manu
  */
 package filmografia.dao;
 
@@ -14,22 +16,38 @@ import java.util.List;
 
 import filmografia.model.Pelicula;
 
-/**
- * @author manu
- *
- */
+
 public class PeliculasServicio {
 
+	/** The con. */
 	private Connection con;
+	
+	/** The sql. */
 	private String sql;
+	
+	/** The pstmt. */
 	private PreparedStatement pstmt;
+	
+	/** The rs. */
 	private ResultSet rs;
 	
+	/**
+	 * Instantiates a new peliculas servicio.
+	 *
+	 * @throws SQLException the SQL exception
+	 * @throws ClassNotFoundException the class not found exception
+	 */
 	public PeliculasServicio() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cine", "manu", "621996");
 	}
 	
+	/**
+	 * Mostar todas peliculas.
+	 *
+	 * @return the list
+	 * @throws Exception the exception
+	 */
 	public List<Pelicula> mostarTodasPeliculas() throws Exception {
 		ArrayList<Pelicula> pelis = new ArrayList<Pelicula>();
 		sql = "Select * From pelicula";
@@ -41,6 +59,13 @@ public class PeliculasServicio {
 		return pelis;
 	}
 	
+	/**
+	 * Alta pelicula.
+	 *
+	 * @param peli the peli
+	 * @return true, if successful
+	 * @throws Exception the exception
+	 */
 	public boolean altaPelicula(Pelicula peli) throws Exception {
 		boolean realizado;
 		sql = "Insert pelicula value (?, ?, ?)";
@@ -52,6 +77,13 @@ public class PeliculasServicio {
 		return realizado;
 	}
 
+	/**
+	 * Borrar pelicula.
+	 *
+	 * @param peli the peli
+	 * @return true, if successful
+	 * @throws Exception the exception
+	 */
 	public boolean borrarPelicula(Pelicula peli) throws Exception {
 		boolean realizado;
 		sql = "Delete From pelicula Where titulo like ? and fecha = ?";
@@ -62,6 +94,13 @@ public class PeliculasServicio {
 		return realizado;
 	}
 
+	/**
+	 * Actualizar pelicula.
+	 *
+	 * @param peli the peli
+	 * @return true, if successful
+	 * @throws Exception the exception
+	 */
 	public boolean actualizarPelicula(Pelicula peli) throws Exception {
 		boolean realizado = false;
 		sql = "Update pelicula set director = ? where titulo = ? and fecha = ?";
@@ -73,6 +112,13 @@ public class PeliculasServicio {
 		return realizado;
 	}
 	
+	/**
+	 * Mostar todas peliculas director.
+	 *
+	 * @param director the director
+	 * @return the list
+	 * @throws SQLException the SQL exception
+	 */
 	public List<Pelicula> mostarTodasPeliculasDirector(String director) throws SQLException {
 		ArrayList<Pelicula> pelisDir = new ArrayList<Pelicula>();
 		sql = "Select * From pelicula Where director = ?";
@@ -85,6 +131,13 @@ public class PeliculasServicio {
 		return pelisDir;
 	}
 	
+	/**
+	 * Buscar peli.
+	 *
+	 * @param titulo the titulo
+	 * @return the pelicula
+	 * @throws SQLException the SQL exception
+	 */
 	public Pelicula buscarPeli(String titulo) throws SQLException {
 		Pelicula pelisDir = null;
 		sql = "Select * From pelicula Where titulo like ?";
@@ -97,6 +150,11 @@ public class PeliculasServicio {
 		return pelisDir;
 	}
 	
+	/**
+	 * Disconnect.
+	 *
+	 * @throws SQLException the SQL exception
+	 */
 	public void disconnect() throws SQLException {
 		if (con != null) {
 			con.close();

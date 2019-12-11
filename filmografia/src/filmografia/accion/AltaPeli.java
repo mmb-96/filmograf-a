@@ -33,14 +33,14 @@ public class AltaPeli implements Facade {
 			 creado = peliDao.altaPelicula(new Pelicula(director, titulo, timestamp));
 			if (!creado) {
 				request.setAttribute("msg", "La película se ha añadido a la base de datos" );
-				pagSiguiente = "datosUser.jsp";
+				pagSiguiente = "datosUser";
 			} else {
 				request.setAttribute("msg", "La película no se ha añadido a la base de datos" );
-				pagSiguiente = "datosUser.jsp";
+				pagSiguiente = "datosUser";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			pagSiguiente = "Error.html";
+			pagSiguiente = "Error";
 		}
 		return pagSiguiente;
 	}

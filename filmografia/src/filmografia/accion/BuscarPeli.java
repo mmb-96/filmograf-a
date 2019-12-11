@@ -27,10 +27,10 @@ public class BuscarPeli implements Facade {
 		try {
 			peli = peliDao.buscarPeli(titulo);
 			request.setAttribute("pelicula", peli );
-			pagSiguiente = "mod-Bor-Peli.jsp";
+			pagSiguiente = "mod-Bor-Peli";
 		} catch (Exception e) {
 			e.printStackTrace();
-			pagSiguiente = "Error.html";
+			pagSiguiente = "Error";
 		}
 		return pagSiguiente;
 	}

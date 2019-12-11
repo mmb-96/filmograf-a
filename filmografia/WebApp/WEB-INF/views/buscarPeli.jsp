@@ -7,9 +7,8 @@
 <title>Buscar película - Consulta Directores Cine</title>
 </head>
 <body>
-	<form action="Controller" method="post">
+	<form action="buscarPeli.html" method="post">
 		Titulo: <input type="text" name="titulo"><br>
-		<input value="buscarPeli" name="action" style="visibility: hidden; display: none;">
 		<button type="submit">Buscar</button>
 	</form>
 </body>

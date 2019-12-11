@@ -25,10 +25,10 @@ public class Mantenimiento implements Facade {
 		try {
 			lista = peliDao.mostarTodosPeliculas();
 			request.setAttribute("peliculas", lista);
-			pagSiguiente = "mantenimiento.jsp";
+			pagSiguiente = "mantenimiento";
 		} catch (Exception e) {
 			e.printStackTrace();
-			pagSiguiente = "Error.html";
+			pagSiguiente = "Error";
 		}
 		return pagSiguiente;
 	}

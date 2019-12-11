@@ -24,13 +24,11 @@
 	  </c:forEach>
 	</table>
 	<br>
-	<form action="Controller" method="post">
-		<input value="alta" name="action" style="visibility: hidden; display: none;">
+	<form action="alta.html" method="post">
 		<button type="submit">Alta nueva pelicula</button>
 	</form>
 	<br>
-	<form action="Controller" method="post">
-		<input value="buscar" name="action" style="visibility: hidden; display: none;">
+	<form action="buscar.html" method="post">
 		<button type="submit">Buscar pelicula</button>
 	</form>
 </body>
