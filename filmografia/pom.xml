@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>filmografia</groupId>
 	<artifactId>filmografia</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>3.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<description>Ejercicio Consulta Directores Cine con MVC</description>
 	<dependencies>
